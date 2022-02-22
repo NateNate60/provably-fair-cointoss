@@ -6,13 +6,13 @@ Copyright (C) 2022 Nathan Lim (a.k.a NateNate60)
 """
 
 import hashlib
+import secrets
 
 def genseed () -> str :
     """
     Securely generate a random seed. Returns hex string
     """
-    with open("/dev/random", "rb") as f :
-        return f.read(32).hex()
+    return secrets.token_hex(32)
 
 def hashseed (seed: str) -> str :
     """
